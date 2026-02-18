@@ -1,14 +1,13 @@
-#include <LiquidCrystal.h>
-LiquidCrystal lcd(14, 27, 26, 25, 33, 32); // RS,E,D4,D5,D6,D7
+#define LED_PIN 2   // Built-in LED (usually GPIO2)
 
 void setup() {
-  lcd.begin(16, 2);
-  delay(200);
-  lcd.clear();
-  lcd.setCursor(0,0);
-  lcd.print("LCD Working!");
-  lcd.setCursor(0,1);
-  lcd.print("ESP32 Test");
+  pinMode(LED_PIN, OUTPUT);
 }
-void loop() {}
 
+void loop() {
+  digitalWrite(LED_PIN, HIGH);   // LED ON
+  delay(1000);
+
+  digitalWrite(LED_PIN, LOW);    // LED OFF
+  delay(1000);
+}
